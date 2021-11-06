@@ -16,7 +16,7 @@
         @foreach ($books as $book)
         <tr>
             <td>{{$book->title}}</td>
-            <td> {{$book->isbn}}</td>
+            <td>{{$book->isbn}}</td>
         </tr>
         @endforeach
     </table>

@@ -6,9 +6,9 @@
     <table class="table table-striped">
 
         <tr>
-            <td> ID </td>
-            <td> Name </td>
-            <td> Surname </td>
+            <td> @sortablelink('id', 'ID') </td>
+            <td> @sortablelink('name', 'Name') </td>
+            <td> @sortablelink('surname', 'Surname') </td>
             <td> Actions </td>
         </tr>
 
@@ -28,6 +28,8 @@
             </tr>
         @endforeach
     </table>
+
+    {!! $authors->appends(Request::except('page'))->render() !!}
 </div>
 
 @endsection
