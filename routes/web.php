@@ -34,6 +34,7 @@ Route::prefix('books')->group(function() {
     Route::post('delete/{book}', 'BookController@destroy')->name('book.destroy');
 
     Route::get('show/{book}', 'BookController@show')->name('book.show');
+    Route::get('generateStatistics', 'BookController@generateStatisticsPdf')->name('book.generatestatistics');
 });
 
 Route::prefix('authors')->group(function() {

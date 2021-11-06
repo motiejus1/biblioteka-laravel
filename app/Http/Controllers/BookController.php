@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Author;
 use Illuminate\Http\Request;
+use PDF;
 
 class BookController extends Controller
 {
@@ -125,4 +126,23 @@ class BookController extends Controller
 
         return redirect()->route("book.index");
     }
+
+    //bus atsakinga uz to pdf generavima
+    public function generateStatisticsPdf() {
+
+        $books = Book::all(); // kas cia per kintamasis? kolekcija/filtruojamas masyvas
+        //ka mes galim padaryti su masyvo elementais? kiek sitame masyve yra knygu, suskaiciuoti
+        $authors = Author::all();
+
+        $booksCount = $books->count(); // 30
+        $authorsCount = $authors->count(); // 30
+
+        view()->share(["booksCount" => $booksCount, "authorsCount" => $authorsCount ]);
+        $pdf = PDF:: loadView('pdf_template');
+
+        return $pdf->download("statistics.pdf");
+
+    }
+
+    //9. Sukurti  vieną mygtuką "Export statistics", kuriame būtų rodoma, kiek iš viso yra Books, Authors,
 }

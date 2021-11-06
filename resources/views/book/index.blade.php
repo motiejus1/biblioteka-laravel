@@ -31,6 +31,11 @@
     <a href="{{route('book.index')}}" class="btn btn-primary">Clear Filter</a>
 
     <a href="{{route('book.create')}}" class="btn btn-primary">Create Book</a>
+
+
+    <a href="{{route('book.generatestatistics')}}" class="btn btn-secondary">
+        Export statistics
+    </a>
     <table class="table table-striped">
 
         <tr>
